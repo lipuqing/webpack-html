@@ -1,0 +1,56 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.body_class {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+.body_class .screen-one {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220616110454961-1401823872.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+}
+.body_class .screen-one .left_box {
+  width: 5.96rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  opacity: 0;
+}
+.body_class .screen-one .left_box .box_title {
+  height: 1.56rem;
+  line-height: 1.56rem;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body_class .screen-one .left_box .box_title .title {
+  font-size: 1.2rem;
+  font-family: YouSheBiaoTiHei;
+  color: #FFFFFF;
+}
+.body_class .screen-one .left_box .box_text {
+  font-size: 0.45rem;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 0.63rem;
+  text-align: center;
+}
+

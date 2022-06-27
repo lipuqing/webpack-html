@@ -1,0 +1,124 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.btn {
+  font-size: 0.15rem;
+  color: #FFFFFF;
+}
+.body_class {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+.body_class .screen_two {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+.body_class .screen_two .kongkong {
+  width: 195px;
+  height: 65px;
+  position: relative;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220617153153452-872486706.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+}
+.body_class .screen_two .screen {
+  width: 195px;
+  height: 65px;
+  position: relative;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220617153153452-872486706.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+  display: flex;
+  justify-content: space-between;
+}
+.body_class .screen_two .screen .screen-center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+.body_class .screen_two .screen .screen-center .top {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: space-around;
+  margin-bottom: 8px;
+}
+.body_class .screen_two .screen .screen-center .top .left .num,
+.body_class .screen_two .screen .screen-center .top .right .num {
+  font-size: 20px;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  color: #2CF695;
+  line-height: 20px;
+  margin-left: 6px;
+}
+.body_class .screen_two .screen .screen-center .top .left {
+  display: flex;
+  flex-direction: row;
+  margin-right: 16px;
+}
+.body_class .screen_two .screen .screen-center .top .left .icon_man {
+  width: 13px;
+  height: 15px;
+  display: flex;
+  margin: auto 0;
+}
+.body_class .screen_two .screen .screen-center .top .right {
+  display: flex;
+  flex-direction: row;
+}
+.body_class .screen_two .screen .screen-center .top .right .icon_d {
+  width: 10px;
+  height: 14px;
+  display: flex;
+  margin: auto 0;
+}
+.body_class .screen_two .screen .screen-center .bottom {
+  height: 15px;
+  font-size: 10px;
+  text-align: center;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 15px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+@keyframes up {
+  0% {
+    bottom: 0;
+    opacity: 1;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
+@keyframes down {
+  0% {
+    bottom: 100%;
+    transform: translateX(-50%) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    bottom: 0%;
+    transform: translateX(-50%) rotate(180deg);
+    opacity: 0;
+  }
+}
+

@@ -1,0 +1,141 @@
+div {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.body_class {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+.body_class .screen-two {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.body_class .screen-two .screen_box {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.body_class .screen-two .screen_box .screen_item {
+  width: 195px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  line-height: 65px;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220616110454961-1401823872.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+}
+.body_class .screen-two .screen_box .screen_item .ch {
+  display: flex;
+  margin: auto;
+  height: 100%;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_left {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 25px;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_left .title,
+.body_class .screen-two .screen_box .screen_item .ch .item_left .num {
+  height: 28px;
+  font-size: 28px;
+  font-family: YouSheBiaoTiHei;
+  color: #FFFFFF;
+  line-height: 28px;
+  margin: auto 0;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right {
+  width: 65px;
+  height: 31px;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220617113210679-1566293746.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  position: relative;
+  transform: rotate(-90deg);
+  margin-right: 10px;
+  margin: auto;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right .right-center {
+  width: 75%;
+  height: 80%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-55%, -45%);
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right .right-center .right_color {
+  height: 100%;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220617115805827-566745068.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: left top;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right .right-center .right_color .right_line {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220617115805827-566745068.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: left top;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right .right-center .right_color .right_show {
+  width: 0%;
+  height: 90%;
+  background-image: url('https://oss.canxingtv.com/wl/file/20220617120432259-246531492.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: left top;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right .right-center .right_number {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right .right-center .right_number .icon {
+  display: flex;
+  margin: auto 0;
+  width: 11px;
+  height: 9px;
+  margin-right: 4px;
+}
+.body_class .screen-two .screen_box .screen_item .ch .item_right .right-center .right_number .number {
+  font-size: 14px;
+  line-height: 14px;
+  font-family: DINAlternate-Bold, DINAlternate;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0rem 0rem 0.03rem rgba(0, 0, 0, 0.8);
+}
+
