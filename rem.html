@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phone rem demo</title>
+  </head>
+  <style>
+    body,
+    p {
+      margin: 0;
+    }
+    body {
+      background: #0e0629;
+    }
+    .height {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .list {
+      display: flex;
+      width: 100%;
+      overflow-x: scroll;
+      box-sizing: border-box;
+    }
+    .li {
+      display: inline-flex;
+      padding: 0 17px;
+    }
+    .li_user {
+      height: 100%;
+      display: inline-flex;
+    }
+  </style>
+  <script>
+    (function (designWidth, maxWidth) {
+      var doc = document,
+        win = window;
+      var docEl = doc.documentElement;
+      var tid;
+      var rootItem, rootStyle;
+
+      function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        if (!maxWidth) {
+          maxWidth = 540;
+        }
+        if (width > maxWidth) {
+          width = maxWidth;
+        }
+        //与淘宝做法不同，直接采用简单的rem换算方法1rem=100px
+        var rem = (width * 100) / designWidth;
+        //兼容UC开始
+        rootStyle = "html{font-size:" + rem + "px !important}";
+        rootItem =
+          document.getElementById("rootsize") ||
+          document.createElement("style");
+        if (!document.getElementById("rootsize")) {
+          document.getElementsByTagName("head")[0].appendChild(rootItem);
+          rootItem.id = "rootsize";
+        }
+        if (rootItem.styleSheet) {
+          rootItem.styleSheet.disabled ||
+            (rootItem.styleSheet.cssText = rootStyle);
+        } else {
+          try {
+            rootItem.innerHTML = rootStyle;
+          } catch (f) {
+            rootItem.innerText = rootStyle;
+          }
+        }
+        //兼容UC结束
+        docEl.style.fontSize = rem + "px";
+      }
+      refreshRem();
+
+      win.addEventListener(
+        "resize",
+        function () {
+          clearTimeout(tid); //防止执行两次
+          tid = setTimeout(refreshRem, 300);
+        },
+        false
+      );
+
+      win.addEventListener(
+        "pageshow",
+        function (e) {
+          if (e.persisted) {
+            // 浏览器后退的时候重新计算
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+          }
+        },
+        false
+      );
+
+      if (doc.readyState === "complete") {
+        doc.body.style.fontSize = "16px";
+      } else {
+        doc.addEventListener(
+          "DOMContentLoaded",
+          function (e) {
+            doc.body.style.fontSize = "16px";
+          },
+          false
+        );
+      }
+      console.log("rem.js");
+    })(375, 750);
+  </script>
+  <body>
+    <div class="page">
+      <div class="pagetop">
+        <img
+          class="height d28"
+          style="display: none"
+          src="https://oss.canxingtv.com/wl/file/20230210172852578-1593547086.png?x-oss-process=image/resize,h_750,m_lfit"
+          alt=""
+        />
+        <img
+          class="height d31"
+          style="display: none"
+          src="https://oss.canxingtv.com/wl/file/20230210173038539-1862605107.png?x-oss-process=image/resize,h_750,m_lfit"
+          alt=""
+        /> 
+
+        <img
+          class="height"
+          src="https://oss.canxingtv.com/wl/file/20230105194340115-2101010832.png?x-oss-process=image/resize,h_750,m_lfit"
+          alt=""
+        />
+        <img
+          class="height d28"
+          style="display: none"
+          src="https://oss.canxingtv.com/wl/file/20230210175140750-1743857161.png?x-oss-process=image/resize,h_750,m_lfit"
+          alt=""
+        />
+        <img
+          class="height d31"
+          style="display: none"
+          src="https://oss.canxingtv.com/wl/file/20230210174947793-140150926.png?x-oss-process=image/resize,h_750,m_lfit"
+          alt=""
+        />
+        <div class="list">
+          <div class="li">
+            <img
+              src="https://oss.canxingtv.com/wl/file/20230105194909363-1317615169.png"
+              alt=""
+              class="li_user"
+            />
+            <img
+              src="https://oss.canxingtv.com/wl/file/20230105195035174-1563718853.png"
+              alt=""
+              class="li_user"
+            />
+            <img
+              src="https://oss.canxingtv.com/wl/file/20230105195103397-103194949.png"
+              alt=""
+              class="li_user"
+            />
+            <img
+              src="https://oss.canxingtv.com/wl/file/20230105195128176-730272065.png"
+              alt=""
+              class="li_user"
+            />
+            <img
+              src="https://oss.canxingtv.com/wl/file/20230105195156302-1743935812.png"
+              alt=""
+              class="li_user"
+            />
+            <img
+              src="https://oss.canxingtv.com/wl/file/20230105195212921-1448375044.png"
+              alt=""
+              class="li_user"
+            />
+          </div>
+        </div> 
+        <img
+          class="height"
+          src="https://oss.canxingtv.com/wl/file/20230210173216904-1886485484.png?x-oss-process=image/resize,h_750,m_lfit"
+          alt=""
+        /> 
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let pageConfig = {
+      getQueryStringByName(name) {
+        var result = location.search.match(
+          new RegExp("[?&]" + name + "=([^&]+)", "i")
+        );
+        if (result == null || result.length < 1) {
+          return "";
+        }
+        return result[1];
+      },
+    };
+    let d28 = document.querySelectorAll('.d28');
+    let d31 = document.querySelectorAll('.d31');
+    let supply = pageConfig.getQueryStringByName('supply')?pageConfig.getQueryStringByName('supply'):'';
+    console.log(d31)
+    if(!!supply){
+      d28.forEach(el => el.style.display = "none")
+      d31.forEach(el => el.style.display = "block")  
+    }else{
+      d28.forEach(el => el.style.display = "block")
+      d31.forEach(el => el.style.display = "none")   
+    }
+  </script>
+</html>
