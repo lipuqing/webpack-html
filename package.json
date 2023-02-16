@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@antv/g2plot": "^2.3.19",
+    "copy-webpack-plugin": "^5.0.0",
     "d": "^1.0.1"
   }
 }

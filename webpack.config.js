@@ -1,11 +1,12 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {
-    CleanWebpackPlugin
-} = require('clean-webpack-plugin');
 const MiniExtract = require('mini-css-extract-plugin');
 const os = require('os');
-///获取本机ip///
+
+const {
+    html_entry,
+    html_plugins
+} = require('./config.js')
+
 function getIPAdress() {
     var interfaces = os.networkInterfaces();
     for (var devName in interfaces) {
@@ -22,20 +23,11 @@ const myHost = getIPAdress();
 
 module.exports = {
     mode: 'development', // production development
-    entry: {
-        plugins: [path.resolve(__dirname, 'src/common/plugins.js')],
-        common: [path.resolve(__dirname, 'src/common/common.js')],
-        city: [path.resolve(__dirname, 'src/common/city.js')],
-        // 测试
-        test: path.resolve(__dirname, 'src/js/test/test.js'), // d屏2
-
-    },
-
+    entry: html_entry,
     output: {
         filename: 'js/[name]_[hash:10].js',
         path: path.resolve(__dirname, 'dist'),
     },
-
     module: {
         rules: [{
                 test: /\.(css|less)$/,
@@ -73,30 +65,23 @@ module.exports = {
             },
         ],
     },
-    plugins: [
-        new MiniExtract({
-            filename: 'css/[name]_[hash:10].css',
-        }),
-        // 测试
-        new HtmlWebpackPlugin({
-            filename: 'test.html',
-            template: path.resolve(__dirname, 'src/html/test/test.html'),
-            hash: true,
-            chunks: ['plugins', 'common', 'test'],
-            minify: {
-                //压缩HTML文件
-                removeComments: true, //移除HTML中的注释
-                collapseWhitespace: true, //删除空白符与换行符
-            },
-        }),
-    ],
-
+    plugins: html_plugins,
     // 自动化打包
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         compress: true,
         host: myHost,
         port: 8080,
+        // proxy: {
+        //     '/api': {
+        //         target: `https://mp.xxx.com/`,
+        //         ws: true,
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': ''
+        //         }
+        //     }
+        // }, // 设置代理
         open: true,
     },
 };
