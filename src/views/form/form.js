@@ -1,17 +1,4 @@
-import './test.less'
-import {
-    changeNum,
-    getUserInfo,
-    openSignUpNB,
-    openSignUp,
-    showLoading,
-    hideLoading,
-    footer,
-} from '../../common/common'
-import {
-    apiUrls
-} from '../../common/apiUrls'
-
+import './form.less'
 (function () {
     'use strict'
     var script = document.createElement("script");

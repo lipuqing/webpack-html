@@ -12,18 +12,25 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 let page = [{
     path: 'test',
-    name: '视频详情',
-    component: 'src/views/test',
+    name: '测试',
+    component: 'src/views/test/test',
     pulic: true,
     plugins: true,
-    isStrong: false,
+    isStrong: true,
 }, {
     path: 'form',
-    name: '视频列表',
-    component: 'src/views/form',
+    name: '表单',
+    component: 'src/views/form/form',
     pulic: false,
     plugins: true,
-    isStrong: false,
+    isStrong: true,
+}, {
+    path: 'nojs',
+    name: '没有js文件引入',
+    component: 'src/views/nojs/one',
+    pulic: false,
+    plugins: false,
+    isStrong: true,
 }, ];
 
 const html_entry = () => {
@@ -59,11 +66,13 @@ const html_plugins = () => {
     let obj = `{`;
     for (let index = 0; index < page.length; index++) {
         const item = page[index];
-        // item.component = item.component.replace('src/html', 'src/js')
-        if (index == (page.length - 1)) {
-            obj += `"${item.path}":"${'./'+item.component +'.js'}"`
-        } else {
-            obj += `"${item.path}":"${'./'+item.component +'.js'}",`
+        if (item.plugins) {
+            // item.component = item.component.replace('src/html', 'src/js')
+            if (index == (page.length - 1)) {
+                obj += `"${item.path}":"${'./'+item.component +'.js'}"`
+            } else {
+                obj += `"${item.path}":"${'./'+item.component +'.js'}",`
+            }
         }
     }
     obj += `}`

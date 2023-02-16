@@ -20,10 +20,29 @@ function getIPAdress() {
     }
 }
 const myHost = getIPAdress();
-
+console.log(html_entry, html_plugins)
 module.exports = {
-    mode: 'development', // production development
+    mode: 'production', // production development
+    // 自动化打包
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        compress: true,
+        host: myHost,
+        port: 8080,
+        // proxy: {
+        //     '/api': {
+        //         target: `https://mp.xxx.com/`,
+        //         ws: true,
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': ''
+        //         }
+        //     }
+        // }, // 设置代理
+        open: true,
+    },
     entry: html_entry,
+    plugins: html_plugins,
     output: {
         filename: 'js/[name]_[hash:10].js',
         path: path.resolve(__dirname, 'dist'),
@@ -64,24 +83,5 @@ module.exports = {
                 options: {},
             },
         ],
-    },
-    plugins: html_plugins,
-    // 自动化打包
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        compress: true,
-        host: myHost,
-        port: 8080,
-        // proxy: {
-        //     '/api': {
-        //         target: `https://mp.xxx.com/`,
-        //         ws: true,
-        //         changeOrigin: true,
-        //         pathRewrite: {
-        //             '^/api': ''
-        //         }
-        //     }
-        // }, // 设置代理
-        open: true,
     },
 };
