@@ -5,7 +5,7 @@
  * name:'详情页',
  * component: '文件路径；例:src/html/proform/info.html'
  * pulic: true, 是否需要copy的公共配置  默认需要
- * plugins:'', 私有配置
+ * plugins: true, 私有配置
  * 
  */
 const path = require("path");
