@@ -1,5 +1,6 @@
 require('./apiUrls');
 require('./client');
+require('./rem');
 import './common.css';
 import {
     host

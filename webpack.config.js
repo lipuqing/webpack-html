@@ -6,6 +6,10 @@ const {
     html_entry,
     html_plugins
 } = require('./config.js')
+const {
+    proxy
+} = require('./router.js')
+// const proxy
 
 function getIPAdress() {
     var interfaces = os.networkInterfaces();
@@ -20,7 +24,7 @@ function getIPAdress() {
     }
 }
 const myHost = getIPAdress();
-console.log(html_entry, html_plugins)
+console.log(proxy)
 module.exports = {
     mode: 'production', // production development
     // 自动化打包
@@ -29,6 +33,7 @@ module.exports = {
         compress: true,
         host: myHost,
         port: 8080,
+        proxy: proxy,
         // proxy: {
         //     '/api': {
         //         target: `https://mp.xxx.com/`,

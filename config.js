@@ -7,7 +7,7 @@ const {
 } = require('./router.js')
 // entry
 let obj = {
-    plugins: [path.resolve(__dirname, 'src/common/plugins.js')],
+    plugins_head: [path.resolve(__dirname, 'src/common/jq.js')],
     common: [path.resolve(__dirname, 'src/common/common.js')],
 }
 exports.html_entry = Object.assign(obj, entry)

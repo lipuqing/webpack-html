@@ -9,7 +9,9 @@
  * 
  */
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const os = require('os');
 let page = [{
     path: 'test',
     name: '测试',
@@ -38,6 +40,7 @@ const html_entry = () => {
     for (let index = 0; index < page.length; index++) {
         const item = page[index];
         let plugins = {
+            title: item.name,
             filename: `${item.path}.html`,
             template: path.resolve(__dirname, `${item.component}.html`),
             hash: true,
@@ -46,10 +49,11 @@ const html_entry = () => {
                 collapseWhitespace: true,
             },
         }
+        //公共资源 是否添加
         if (!item.pulic) {
             plugins.chunks = []
         } else {
-            plugins.chunks = ['plugins', 'common']
+            plugins.chunks = ['common']
         }
         if (!!item.plugins) {
             plugins.chunks.push(item.path)
@@ -57,6 +61,11 @@ const html_entry = () => {
         array.push(new HtmlWebpackPlugin(plugins))
 
     }
+    array.push(
+        new webpack.ProvidePlugin({
+            $: path.resolve('./src/common/jq.js'),
+            cf: path.resolve('./src/common/common.js'),
+        }))
     return array
 };
 const html_plugins = () => {
@@ -78,8 +87,40 @@ const html_plugins = () => {
     obj += `}`
     return eval('(' + obj + ')')
 };
+// 配置代理
+function getIPAdress() {
+    var interfaces = os.networkInterfaces();
+    for (var devName in interfaces) {
+        var iface = interfaces[devName];
+        for (var i = 0; i < iface.length; i++) {
+            var alias = iface[i];
+            if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+                return alias.address;
+            }
+        }
+    }
+}
+const myHost = getIPAdress();
+const proxy = () => {
+    let currtent = new Object()
+    page.map((item, index) => {
+        console.log(item)
+        for (const key in item) {
+            if (key === 'path') {
+                let pathRewrite = new Object()
+                pathRewrite[`^/${item[key]}`] = ''
+                currtent[`/${item[key]}`] = {
+                    target: `http://${myHost}:8080/${item[key]}.html`,
+                    pathRewrite
+                }
+            }
+        }
+    })
+    return currtent
 
+}
 
 //  返回数组 
 exports.router = html_entry()
 exports.entry = html_plugins()
+exports.proxy = proxy()
