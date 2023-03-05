@@ -1,5 +1,7 @@
 # webpack-html
 
+# node 高版本向低兼容 移除 lock.json node_modules
+
 ├── README.md
 ├── package.json
 ├── package-lock.json

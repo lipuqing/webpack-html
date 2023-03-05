@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "npx webpack-dev-server",
-        "build": "webpack"
+        "dev": "set NODE_OPTIONS=--openssl-legacy-provider && npx webpack-dev-server",
+        "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack"
     },
     "author": "",
     "license": "ISC",
