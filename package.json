@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "set NODE_OPTIONS=--openssl-legacy-provider && npx webpack-dev-server",
+        "dev": "set NODE_OPTIONS=--openssl-legacy-provider && cross-env NODE_ENV=development npx webpack-dev-server --progress --colors",
+        "prod": "set NODE_OPTIONS=--openssl-legacy-provider && cross-env NODE_ENV=production  npx webpack-dev-server --progress --colors",
         "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack"
     },
     "author": "",
@@ -32,6 +33,7 @@
     "dependencies": {
         "@antv/g2plot": "^2.3.19",
         "copy-webpack-plugin": "^5.0.0",
+        "cross-env": "^7.0.3",
         "d": "^1.0.1"
     }
 }

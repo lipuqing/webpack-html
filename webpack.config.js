@@ -24,7 +24,9 @@ function getIPAdress() {
     }
 }
 const myHost = getIPAdress();
-console.log(proxy)
+// console.log(proxy)
+const NODE_ENV = process.env.NODE_ENV;
+console.log(NODE_ENV);
 module.exports = {
     mode: 'production', // production development
     // 自动化打包
