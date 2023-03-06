@@ -1,5 +1,7 @@
 # webpack-html
 
+# 配置全局主题前
+
 # node 高版本向低兼容 移除 lock.json node_modules
 
 ├── README.md
