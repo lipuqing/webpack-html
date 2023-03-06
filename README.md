@@ -16,9 +16,9 @@
 ├── config.js  
 ├── router.js  
 ├── src  
-│ ├── views  
-│ │ ├── pagefolder  
-│ │ │ ├── page.html  
-│ │ │ ├── page.js  
-│ └───└── page.less  
+├────└── views  
+├─────────└── pagefolder  
+├───────────────├── page.html  
+├───────────────├── page.js  
+├───────────────└── page.less  
 └── webpack.config.js
