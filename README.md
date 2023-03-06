@@ -2,7 +2,7 @@
 
 # 配置全局主题前
 
-# 443 问题
+# 443 问题 git config --global http.proxy "127.0.0.1:6987"
 
 # node 高版本向低兼容 移除 lock.json node_modules
 
