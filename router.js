@@ -27,6 +27,13 @@ let page = [{
     plugins: true,
     isStrong: true,
 }, {
+    path: 'snow',
+    name: '雪花',
+    component: 'src/views/html/snow',
+    pulic: false,
+    plugins: false,
+    isStrong: true,
+}, {
     path: 'nojs',
     name: '没有js文件引入',
     component: 'src/views/nojs/one',
