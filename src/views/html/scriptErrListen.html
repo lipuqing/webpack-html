@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        var log = (e)=>{
+            console.log(e)
+        },index= 1;
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+    </style>
+<body>
+ 
+
+<script>
+    window.addEventListener('error',(e)=>{
+     const tag = e.target
+     console.log(e,tag)
+     if(tag.nodeName ==='SCRIPT'&& !(e instanceof ErrorEvent)){
+        log('script错误')
+        const url = new URL(tag.src) //替换不同站点资源
+        let script = document.createElement('script')
+        script.src = url.toString()
+        setTimeout(()=>document.body.insertBefore(script,tag),3000)
+        //阻塞后续事件
+        // let listen = ()=> document.write(`<script src="${url.toString()}">\<\/script>`) 
+        // setTimeout(listen,3000)
+     }
+ },true)
+
+</script> 
+
+<script src="http://1.js"></script>
+</body>
+</html>
