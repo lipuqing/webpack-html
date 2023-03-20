@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+    </style>
+<body>
+
+<canvas id="canvas"> 
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+class init {
+    constructor(width,height){
+        this.width = width
+        this.height = height
+        //画板
+        this.canvas = document.querySelector('canvas'); 
+        this.canvas.width = this.width;
+        this.canvas.height = this.height; 
+        this.ctx = this.canvas.getContext('2d');
+    }
+    // 画点
+    darwRound(){
+        this.ctx.fillStyle = '#000'
+        this.ctx.fillRect(0,0,this.width,this.height)
+        this.ctx.beginPath()
+        this.ctx.lineWidth = 4
+        this.ctx.moveTo(100,100)
+        this.ctx.arc(100,100,2,0,Math.PI*2)
+        this.ctx.strokeStyle=`rgba(255,255,255,1)`
+        this.ctx.stroke() 
+    }
+    //画线
+    darwCanvas(){ 
+        this.darwRound()
+        let apl = 0.5;
+        this.ctx.fillStyle = '#000'
+        this.ctx.lineWidth = 1
+        this.ctx.beginPath()
+        this.ctx.moveTo(100,100)
+        this.ctx.lineTo(200,200)
+        this.ctx.strokeStyle=`rgba(255,255,255,${apl})`
+        this.ctx.stroke() 
+    }
+}
+
+let _init = new init(window.innerWidth,window.innerHeight)
+_init.darwCanvas()
+
+</script> 
+
+</body>
+</html>

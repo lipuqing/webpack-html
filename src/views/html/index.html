@@ -16,45 +16,41 @@ Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <script>
+    const canvas = document.querySelector('canvas');
 
-class init {
-    constructor(width,height){
-        this.width = width
-        this.height = height
-        //画板
-        this.canvas = document.querySelector('canvas'); 
-        this.canvas.width = this.width;
-        this.canvas.height = this.height; 
-        this.ctx = this.canvas.getContext('2d');
-    }
-    // 画点
-    darwRound(){
-        this.ctx.fillStyle = '#000'
-        this.ctx.fillRect(0,0,this.width,this.height)
-        this.ctx.beginPath()
-        this.ctx.lineWidth = 4
-        this.ctx.moveTo(100,100)
-        this.ctx.arc(100,100,2,0,Math.PI*2)
-        this.ctx.strokeStyle=`rgba(255,255,255,1)`
-        this.ctx.stroke() 
-    }
-    //画线
-    darwCanvas(){ 
-        this.darwRound()
-        let apl = 0.5;
-        this.ctx.fillStyle = '#000'
-        this.ctx.lineWidth = 1
-        this.ctx.beginPath()
-        this.ctx.moveTo(100,100)
-        this.ctx.lineTo(200,200)
-        this.ctx.strokeStyle=`rgba(255,255,255,${apl})`
-        this.ctx.stroke() 
-    }
-}
+    const gl = canvas.getContext('webgl');
 
-let _init = new init(window.innerWidth,window.innerHeight)
-_init.darwCanvas()
+    canvas.width = 500;
+    canvas.height = 500;
+    if (!gl) {
+        throw new Error('WebGL not supported');
+    }
+    //画板
+    gl.viewport(0, 0, canvas.width, 300)
+    // 设置背景色
+    gl.clearColor(1.0, 1.0, 0.0, 2.0)
+    // 清空缓冲区
+    gl.clear(gl.COLOR_BUFFER_BIT)
+    
+    let _li = {
+        n:1,
+        a:2,
+        m:3,
+        e:4
+    }
+    Object.values(_li).forEach((t)=>{
+        console.log(t)
+    })
+    Object.keys(_li).forEach((t)=>{
+        console.log(t,_li[t])
 
+    })
+    // Object.defineProperty(_li, "name", {
+    //     value: '123'
+    // });
+    // _li.name = '55'
+    // console.log(_li.name);
+    // console.log(_li);
 </script> 
 
 </body>

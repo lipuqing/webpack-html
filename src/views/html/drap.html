@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #upload {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="upload">
+
+  </div>
+  <script>
+      const upload = document.querySelector('#upload')
+      // 拖拽获取 dragenter dragleave dragover drop
+      upload.addEventListener('dragenter', function () {
+        console.log('进入')
+      })
+      upload.addEventListener('dragleave', function () {
+        console.log('离开')
+      })
+      upload.addEventListener('dragover', function (ev) {
+        ev.preventDefault()
+      })
+      upload.addEventListener('drop', function (ev) {
+        ev.preventDefault()
+        let file = ev.dataTransfer.files[0]
+        console.log('file', file)//在这里可以拿到上传文件的信息
+        // 紧接着可以将此文件上传到服务器
+      })
+
+    //实现文件拖拽功能
+    
+  </script>
+
+</body>
+
+</html>
