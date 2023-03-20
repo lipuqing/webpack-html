@@ -22,18 +22,18 @@
   <script>
       const upload = document.querySelector('#upload')
       // 拖拽获取 dragenter dragleave dragover drop
-      upload.addEventListener('dragenter', function () {
+      upload.addEventListener('dragenter', (event)=>{
         console.log('进入')
       })
-      upload.addEventListener('dragleave', function () {
+      upload.addEventListener('dragleave',(event)=>{
         console.log('离开')
       })
-      upload.addEventListener('dragover', function (ev) {
+      upload.addEventListener('dragover', (event)=> {
         ev.preventDefault()
       })
-      upload.addEventListener('drop', function (ev) {
-        ev.preventDefault()
-        let file = ev.dataTransfer.files[0]
+      upload.addEventListener('drop', (event)=> {
+        event.preventDefault()
+        let file = event.dataTransfer.files[0]
         console.log('file', file)//在这里可以拿到上传文件的信息
         // 紧接着可以将此文件上传到服务器
       })
