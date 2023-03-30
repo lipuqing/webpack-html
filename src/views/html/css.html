@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+</head>
+<style >
+    body{
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        cursor: pointer;
+    }
+    div{
+        width: calc(100%-300px);
+        margin: auto;
+        display: flex;
+    }
+    img{
+        margin: auto;
+        --s:300px;
+        --c:#ff9900;
+        --cd:#000;
+        --d:5px;
+        --ds:5;
+        --f:1;
+        --bgOptions:content-box no-repeat center / calc(100% /var(--f)) 100%;
+        --sk:calc( (var(--s) / var(--f) - var(--s) ) / 2 - var(--d) );
+        width: var(--s);
+        height: var(--s);
+        transition: 0.5s;
+        outline: 5px solid var(--cd);
+        outline-offset:var(--sk);
+        transform: scale(var(--f));
+        border-radius: 0 0 999px 999px;
+        padding-top: 100px; 
+        background: radial-gradient(
+        circle closest-side,
+        var(--c) calc(99% - var(--d)),
+        var(--cd) calc(100% - var(--d)),
+        var(--cd) 99%, 
+        transparent
+        ) var(--bgOptions);
+        -webkit-mask:
+        linear-gradient(#000 0 0) no-repeat center calc(0px - var(--sk) ) / calc( 98% / var(--f) - 2 * var(--d)) 50%,
+        radial-gradient( circle closest-side,#000 99%,transparent) var(--bgOptions); 
+    }
+    img:hover{
+        --f:1.45;
+    }
+</style>
+<body>
+    <div>
+        <img src="./2.png" alt="">
+    </div>
+</body>
+</html>
